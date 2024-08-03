@@ -1,0 +1,30 @@
+{
+    "manifest_version": 3,
+    "name": "AdGuardian",
+    "version": "1.0",
+    "description": "No more ads on YouTube!",
+    "permissions": ["storage", "activeTab","scripting"],
+    "host_permissions": ["*://www.youtube.com/*"],
+    "action": {
+      "default_popup": "popup.html",
+      "default_icon": {
+        "16": "images/icon.png",
+        "48": "images/icon.png",
+        "128": "images/icon.png"
+      }
+    },
+    "background": {
+      "service_worker": "background.js"
+    },
+    "content_scripts": [
+      {
+        "matches": ["*://www.youtube.com/*"],
+        "js": ["content.js"]
+      }
+    ],
+    "icons": {
+      "16": "images/icon.png",
+      "48": "images/icon.png",
+      "128": "images/icon.png"
+    }
+  }
